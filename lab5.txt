@@ -43,3 +43,19 @@ WHERE city LIKE 'S______' AND state_province is not null;
 
 SELECT * FROM employees
 WHERE job_id LIKE 'SA&_%' ESCAPE '&' OR job_id LIKE 'IT&_%' ESCAPE '&';
+
+SELECT job_id, department_id
+FROM job_history
+WHERE end_date < '1998-01-30' ORDER BY employee_id ASC;
+
+SELECT country_name, region_id
+FROM countries
+WHERE country_name LIKE 'United%' ORDER BY region_id ASC;
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE manager_id is NULL;
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE first_name LIKE 'S%' ORDER BY first_name ASC;
