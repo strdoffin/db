@@ -1,0 +1,45 @@
+SELECT CONCAT(first_name," ",last_name) `full name` , phone_number `phone`
+FROM employees
+WHERE salary * commission_pct > 0;
+
+SELECT TradeName, GenericMark FROM medicine WHERE TradeName LIKE '%2.5$%' ESCAPE '$';
+
+SELECT CONCAT(street_address,'_',city) `Address` FROM locations WHERE country_id NOT IN ('CA','CN','CH');
+
+SELECT location_id, street_address, state_province FROM locations WHERE country_id != 'CN' AND state_province IS NOT NULL;
+
+SELECT employee_id, first_name, last_name, commission_pct + 0.5 `New Commission`
+FROM employees
+WHERE commission_pct + 0.5 > 0.7
+ORDER BY `New Commission` DESC;
+
+SELECT employee_id, end_date , job_id
+FROM job_history
+WHERE end_date < '2000%';
+
+SELECT first_name, last_name, phone_number
+FROM employees
+WHERE last_name LIKE '_e%' OR phone_number LIKE '515%';
+
+SELECT department_name FROM departments
+WHERE department_name LIKE 'IT%';
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE job_id NOT IN ('IT_PROG', 'AD_VP', 'AD_PRES')
+ORDER BY job_id DESC;
+
+SELECT first_name, last_name , salary * 12 `Annual Salary`
+FROM employees
+WHERE salary * 12 > 30000;
+
+SELECT street_address, country_id
+FROM locations
+WHERE postal_code LIKE '1%0';
+
+SELECT street_address , city , postal_code
+FROM locations
+WHERE city LIKE 'S______' AND state_province is not null;
+
+SELECT * FROM employees
+WHERE job_id LIKE 'SA&_%' ESCAPE '&' OR job_id LIKE 'IT&_%' ESCAPE '&';
